@@ -69,22 +69,32 @@ const questions = [
     {
         type: 'input',
         message: "If applicable, provide guidelines on how other developers can contribute to your project.",
-        name: 'contributing'
+        name: 'contribute'
     },
     {
         type: 'input',
         message: "If applicable, provide any tests written for your application and provide examples on how to run them.",
-        name: 'tests'
+        name: 'test'
     },
     {
     type: 'input',
-        message: "If applicable, provide a licensing for your application. (view https://choosealicense.com/ for help",
+        message: "If applicable, provide a licensing for your application. (view https://choosealicense.com/ for help)",
         name: 'license'
     }    
     
 ];
 
+function writeToFile(fileName, data) {
+    fs.writeFile(fileName, data, err => {
+        if (err) {
+          return console.log(err);
+        }
+      
+        console.log("Success! Your README.md file has been generated")
+    });
+}
 
+const writeFileAsync = util.promisify(writeToFile);
 
 
 async function init() {
