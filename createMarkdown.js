@@ -1,5 +1,6 @@
-
+// builds the markdown based on responses
 function createMarkdown(userResponse) {
+//  generates appropriate table of contents
  let contents =
  `${"_____".repeat(25)}
  ### Table of Contents
@@ -37,7 +38,7 @@ function createMarkdown(userResponse) {
  `};
  
 
-
+//writes top to bottom markup of document.
  let writeMarkdown =
  `
  # ${userResponse.title}
@@ -125,7 +126,7 @@ function createMarkdown(userResponse) {
  `
  };
 
-//  adds license field if applicable
+//  adds contact field if applicable
 if (userResponse.contact !== '') {
   
  writeMarkdown +=

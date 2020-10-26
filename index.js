@@ -65,6 +65,8 @@ const questions = [
 
 ];
 
+
+// Writes actual .md 
 function writeToFile(fileName, data) {
     fs.writeFile(fileName, data, err => {
         if (err) {
@@ -85,7 +87,7 @@ async function init() {
         const userResponses = await inquirer.prompt(questions);
         console.log("Your responses: ", userResponses);
     
-        // Pass Inquirer userResponses and GitHub userInfo to generateMarkdown
+        // Pass Inquirer userResponses to create Markdown
         console.log("Generating your README next...")
         const markdown = createMarkdown(userResponses);
         console.log(markdown);
@@ -99,5 +101,5 @@ async function init() {
 
 }
 
-// function call to initialize program
+// function to initialize program
 init();
