@@ -26,6 +26,10 @@ function createMarkdown(userResponse) {
  contents += `
  *[license][5]` };
 
+ if (userResponse.contact !== "") {
+ contents += `
+ *[contact info][6]` };
+
  if (contents !== "") {
  contents +=`
  ${"_____".repeat(25)}
@@ -121,9 +125,27 @@ function createMarkdown(userResponse) {
  `
  };
 
+//  adds license field if applicable
+if (userResponse.contact !== '') {
+  
+ writeMarkdown +=
+ `
+ [6]:
+ ## Contact Info
+          
+ ${userResponse.contact}
+             
+ ${"_____".repeat(25)}
+ `
+ };
+
 // Returns finsihed written markdown
  return writeMarkdown;
 };
+
+
+
+
 
 
 

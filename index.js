@@ -22,30 +22,6 @@ const questions = [
     },
     {
         type: 'input',
-        message: "What is your GitHub username?",
-        name: 'username',
-        default: '',
-        validate: function (answer) {
-            if (answer.length < 1) {
-                return console.log("A valid GitHub username is required.");
-            }
-            return true;
-        }
-    },
-    {
-        type: 'input',
-        message: "What is the name of your GitHub repo?",
-        name: 'repo',
-        default: '',
-        validate: function (answer) {
-            if (answer.length < 1) {
-                return console.log("A valid GitHub repo is required");
-            }
-            return true;
-        }
-    },
-    {
-        type: 'input',
         message: "Write a description of your project.",
         name: 'description',
         default: 'Project Description',
@@ -58,30 +34,35 @@ const questions = [
     },
     {
         type: 'input',
-        message: "If applicable, describe the steps required to install your project for the Installation section.",
+        message: "Please describe the steps required to install this project.",
         name: 'installation'
     },
     {
         type: 'input',
-        message: "Provide instructions and examples of your project in use for the Usage section.",
+        message: "Please provide instructions and examples of this project in use.",
         name: 'usage'
     },
     {
         type: 'input',
-        message: "If applicable, provide guidelines on how other developers can contribute to your project.",
+        message: "Please provide a process for how other developers can contribute to this project.",
         name: 'contribute'
     },
     {
         type: 'input',
-        message: "If applicable, provide any tests written for your application and provide examples on how to run them.",
+        message: "Please provide any details about tests written for this application and info on running them.",
         name: 'test'
     },
     {
-    type: 'input',
-        message: "If applicable, provide a licensing for your application. (view https://choosealicense.com/ for help)",
+        type: 'input',
+        message: "If applicable, provide licensing this application. (view https://choosealicense.com/ for help)",
         name: 'license'
-    }    
-    
+    },
+    {
+        type: 'input',
+        message: "Please provide contact info here, including your GitHub account and/or the repository for this app, and a note on how to best contact you for questions",
+        name: 'contact'
+    }
+
 ];
 
 function writeToFile(fileName, data) {
@@ -110,7 +91,7 @@ async function init() {
         console.log(markdown);
     
         // Write markdown to file
-        await writeFileAsync('ExampleREADME.md', markdown);
+        await writeFileAsync('newREADME.md', markdown);
 
     } catch (error) {
         console.log(error);
